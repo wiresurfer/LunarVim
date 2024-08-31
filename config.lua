@@ -50,7 +50,7 @@ local ux_plugins = {
 
 
 local git_plugins = {
-  {'samoshkin/vim-mergetool'},
+  { 'samoshkin/vim-mergetool' },
   {
     "NeogitOrg/neogit",
     dependencies = {
@@ -109,7 +109,43 @@ local git_plugins = {
 }
 
 local dev_helper_plugins = {
-
+  {
+    "folke/trouble.nvim",
+    opts = {}, -- for default options, refer to the configuration section for custom setup.
+    cmd = "Trouble",
+    keys = {
+      {
+        "<leader>xx",
+        "<cmd>Trouble diagnostics toggle<cr>",
+        desc = "Diagnostics (Trouble)",
+      },
+      {
+        "<leader>xX",
+        "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+        desc = "Buffer Diagnostics (Trouble)",
+      },
+      {
+        "<leader>cs",
+        "<cmd>Trouble symbols toggle focus=false<cr>",
+        desc = "Symbols (Trouble)",
+      },
+      {
+        "<leader>cl",
+        "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+        desc = "LSP Definitions / references / ... (Trouble)",
+      },
+      {
+        "<leader>xL",
+        "<cmd>Trouble loclist toggle<cr>",
+        desc = "Location List (Trouble)",
+      },
+      {
+        "<leader>xQ",
+        "<cmd>Trouble qflist toggle<cr>",
+        desc = "Quickfix List (Trouble)",
+      },
+    },
+  },
   { 'dnlhc/glance.nvim' },
   {
     "prettier/vim-prettier",
@@ -331,5 +367,30 @@ keymap.set({ "n", "c", "v" }, '<Space>mo', '<CMD>Outline<CR>')
 keymap.set('n', '<Space>za', 'zfat')
 
 lvim.builtin.nvimtree.setup.update_focused_file.update_root = false
+
+
 vim.g.mergetool_layout = 'lr,m'
 vim.g.mergetool_prefer_revision = 'local'
+
+
+lvim.builtin.telescope.pickers.find_files = {
+  layout_strategy = "center",
+  layout_config = { width = 0.80, height = 0.80, preview_width = nil, prompt_position = "top" }
+}
+
+lvim.builtin.telescope.pickers.live_grep = {
+  layout_config = { height = 0.99, width = 0.99, preview_cutoff = 120, preview_width = 0.6, prompt_position = "top" },
+  layout_strategy = "horizontal"
+}
+
+lvim.builtin.telescope.pickers.git_commits = {
+  layout_strategy = "horizontal",
+  layout_config = { height = 0.88, width = 0.88, preview_cutoff = 20, preview_width = 0.70, prompt_position = "bottom" }
+}
+
+lvim.builtin.telescope.pickers.man_pages = {
+  layout_strategy = "horizontal",
+  layout_config = { height = 0.99, width = 0.99, preview_cutoff = nil, preview_width = 0.80, prompt_position = "bottom" }
+}
+
+lvim.builtin.telescope.pickers.vim_options = { layout_config = { height = 0.66, width = 0.66 } }
