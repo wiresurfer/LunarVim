@@ -50,6 +50,7 @@ local ux_plugins = {
 
 
 local git_plugins = {
+  {'samoshkin/vim-mergetool'},
   {
     "NeogitOrg/neogit",
     dependencies = {
@@ -330,3 +331,5 @@ keymap.set({ "n", "c", "v" }, '<Space>mo', '<CMD>Outline<CR>')
 keymap.set('n', '<Space>za', 'zfat')
 
 lvim.builtin.nvimtree.setup.update_focused_file.update_root = false
+vim.g.mergetool_layout = 'lr,m'
+vim.g.mergetool_prefer_revision = 'local'
