@@ -80,9 +80,9 @@ local git_plugins = {
           -- adds current line nr in the url for normal mode
           add_current_line_on_normal_mode = true,
           -- callback for what to do with the url
-          action_callback = require("gitlinker.actions").open_in_browser,
+          action_callback = require("gitlinker.actions").copy_to_clipboard,
           -- print the url after performing the action
-          print_url = false,
+          print_url = true,
           -- mapping to call url generation
           mappings = "<leader>gy",
         },
@@ -115,32 +115,32 @@ local dev_helper_plugins = {
     cmd = "Trouble",
     keys = {
       {
-        "<leader>xx",
+       "<leader>lx",
         "<cmd>Trouble diagnostics toggle<cr>",
         desc = "Diagnostics (Trouble)",
       },
       {
-        "<leader>xX",
+        "<leader>ltX",
         "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
         desc = "Buffer Diagnostics (Trouble)",
       },
       {
-        "<leader>cs",
+        "<leader>lts",
         "<cmd>Trouble symbols toggle focus=false<cr>",
         desc = "Symbols (Trouble)",
       },
       {
-        "<leader>cl",
+        "<leader>ltl",
         "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
         desc = "LSP Definitions / references / ... (Trouble)",
       },
       {
-        "<leader>xL",
+        "<leader>ltL",
         "<cmd>Trouble loclist toggle<cr>",
         desc = "Location List (Trouble)",
       },
       {
-        "<leader>xQ",
+        "<leader>ltQ",
         "<cmd>Trouble qflist toggle<cr>",
         desc = "Quickfix List (Trouble)",
       },
@@ -374,12 +374,12 @@ vim.g.mergetool_prefer_revision = 'local'
 
 
 lvim.builtin.telescope.pickers.find_files = {
-  layout_strategy = "center",
-  layout_config = { width = 0.80, height = 0.80, preview_width = nil, prompt_position = "top" }
+  layout_strategy = "horizontal",
+  layout_config = { width = 0.85, height = 0.80, preview_width = 0.5, preview_cutoff=120, prompt_position = "top" }
 }
 
 lvim.builtin.telescope.pickers.live_grep = {
-  layout_config = { height = 0.99, width = 0.99, preview_cutoff = 120, preview_width = 0.6, prompt_position = "top" },
+  layout_config = { height = 0.90, width = 0.90, preview_cutoff = 120, preview_width = 0.6, prompt_position = "top" },
   layout_strategy = "horizontal"
 }
 
@@ -393,4 +393,14 @@ lvim.builtin.telescope.pickers.man_pages = {
   layout_config = { height = 0.99, width = 0.99, preview_cutoff = nil, preview_width = 0.80, prompt_position = "bottom" }
 }
 
-lvim.builtin.telescope.pickers.vim_options = { layout_config = { height = 0.66, width = 0.66 } }
+lvim.builtin.telescope.pickers.vim_options = { layout_config = { height = 0.75, width = 0.75 } }
+
+
+vim.api.nvim_exec([[
+function! HandleUrl(url)
+ execute "!xdg-open" a:url " &"
+endfunction
+
+]], false)
+
+vim.g.mkdp_browserfunc = "HandleUrl"
