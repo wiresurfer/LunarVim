@@ -43,7 +43,7 @@ lvim.builtin.which_key.mappings["gM"] = {
 }
 
 lvim.builtin.which_key.mappings["gO"] = lvim.builtin.which_key.mappings["go"]
-lvim.builtin.which_key.mappings["go"] = {
+lvim.builtin.which_key.mappings["o"] = {
   name = "Git Octo",
   i = {
     name = "Issue",
