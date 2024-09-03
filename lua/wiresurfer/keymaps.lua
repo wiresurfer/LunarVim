@@ -20,6 +20,7 @@ M.whick_remap("LA", "<cmd>ASToggle<cr>", "Toggle  Auto Save")
 M.whick_remap("bv", "<C-w>v", "Split vertical")
 M.whick_remap("bh", "<C-w>s", "Split Horizonal")
 M.whick_remap("bx", ":bd<CR>", "Kill Buffer")
+M.whick_remap("bd", ":bd<CR>", "Kill Buffer")
 
 M.whick_remap('mm', '<CMD>MarkdownPreview<CR>', 'Markdown Preview')
 M.whick_remap('mo', '<CMD>Outline<CR>', 'Markdown Outline')
@@ -28,6 +29,18 @@ M.whick_remap("mp", '<CMD>PasteImage<CR>', 'Markdown Paste Image')
 M.whick_remap('lo', '<CMD>Outline<CR>', 'LSP Outline')
 
 M.whick_remap('gn', '<CMD>Neogit<CR>', 'Neogit')
+M.whick_remap('gM', '<CMD>Mergetool<CR>', 'Neogit')
+
+lvim.builtin.which_key.mappings["gM"] = {
+  name = "Mergetool",
+  l = { '<CMD>MergetoolPreferLocal<CR>', 'Prefer Local' },
+  r = { '<CMD>MergetoolPreferRemote<CR>', 'Prefer Remote' },
+  t = { '<CMD>MergetoolToggle<CR>', 'Toggle' },
+  s = { '<CMD>MergetoolStart<CR>', 'Start' },
+  S = { '<CMD>MergetoolStop<CR>', 'Stop' },
+  L = { '<CMD>MergetoolSetLayout<CR>', 'Set Layout' },
+  M = { '<CMD>MergetoolToggle<CR>', 'Toggle' },
+}
 
 lvim.builtin.which_key.mappings["gO"] = lvim.builtin.which_key.mappings["go"]
 lvim.builtin.which_key.mappings["go"] = {
@@ -37,6 +50,9 @@ lvim.builtin.which_key.mappings["go"] = {
     l = { "<CMD>Octo issue list<CR>", 'List' },
     n = { "<CMD>Octo issue create<CR>", 'Create New' },
     c = { "<CMD>Octo issue close<CR>", 'Close ' },
+    b = { "<CMD>Octo issue browser<CR>", 'Browser ' },
+    f = { "<CMD>Octo issue search<CR>", 'Search  ' },
+    e = { "<CMD>Octo issue edit<CR>", 'Edit  ' },
 
   },
   p = {

@@ -1,5 +1,11 @@
 local ux_plugins = {
-  {"pocco81/auto-save.nvim"},
+  {
+    "pocco81/auto-save.nvim",
+    enabled = false,
+    opts = {
+      debounce_delay = 30000,
+    }
+  },
   {
     "karb94/neoscroll.nvim",
     event = "WinScrolled",
