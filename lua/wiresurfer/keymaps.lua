@@ -60,6 +60,11 @@ lvim.builtin.which_key.mappings["go"] = {
     l = { "<CMD>Octo pr list<CR>", 'List' },
     n = { "<CMD>Octo pr create<CR>", 'Create New' },
     c = { "<CMD>Octo pr close<CR>", 'Close ' },
+    r = { "<CMD>Octo pr reopen<CR>", 'Reopen' },
+    m = { "<CMD>Octo pr merge<CR>", 'Merge ' },
+    d = { "<CMD>Octo pr diff<CR>", 'Diff ' },
+    s = { "<CMD>Octo pr search<CR>", 'Search' },
+
   },
   r = {
     name = "Review",
