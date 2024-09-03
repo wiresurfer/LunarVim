@@ -34,22 +34,22 @@ lvim.builtin.which_key.mappings["go"] = {
   name = "Git Octo",
   i = {
     name = "Issue",
-    l = { "<CMD>Octo issue list", 'List' },
-    n = { "<CMD>Octo issue create", 'Create New' },
-    c = { "<CMD>Octo issue close", 'Close ' },
+    l = { "<CMD>Octo issue list<CR>", 'List' },
+    n = { "<CMD>Octo issue create<CR>", 'Create New' },
+    c = { "<CMD>Octo issue close<CR>", 'Close ' },
 
   },
   p = {
     name = "PR",
-    l = { "<CMD>Octo pr list", 'List' },
-    n = { "<CMD>Octo pr create", 'Create New' },
-    c = { "<CMD>Octo pr close", 'Close ' },
+    l = { "<CMD>Octo pr list<CR>", 'List' },
+    n = { "<CMD>Octo pr create<CR>", 'Create New' },
+    c = { "<CMD>Octo pr close<CR>", 'Close ' },
   },
   r = {
     name = "Review",
-    l = { "<CMD>Octo review list", 'List' },
-    n = { "<CMD>Octo review create", 'Create New' },
-    c = { "<CMD>Octo review close", 'Close ' },
+    l = { "<CMD>Octo review list<CR>", 'List' },
+    n = { "<CMD>Octo review create<CR>", 'Create New' },
+    c = { "<CMD>Octo review close<CR>", 'Close ' },
   }
 }
 
