@@ -1,5 +1,39 @@
 local ux_plugins = {
   {
+    'rmagatti/auto-session',
+    lazy = false,
+    enabled = true,
+    dependencies = {
+      'nvim-telescope/telescope.nvim', -- Only needed if you want to use session lens
+    },
+
+    ---enables autocomplete for opts
+    ---@module "auto-session"
+    ---@type AutoSession.Config
+    opts = {
+      suppressed_dirs = { '~/', '~/Projects', '~/Downloads', '/', '~/Desktop', '~/Desktop/development' },
+      -- log_level = 'debug',
+    }
+  },
+  {
+    'stevearc/oil.nvim',
+    opts = {
+      columns = {
+        "icon",
+        "permissions",
+        "size",
+        "mtime",
+      },
+      view_options = {
+        -- Show files and directories that start with "."
+        show_hidden = false,
+      },
+    },
+    -- Optional dependencies
+    -- dependencies = { { "echasnovski/mini.icons", opts = {} } },
+    dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
+  },
+  {
     "pocco81/auto-save.nvim",
     enabled = false,
     opts = {

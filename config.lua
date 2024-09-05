@@ -13,8 +13,8 @@ end
 
 LoadPluginList(require("wiresurfer.ux"))
 LoadPluginList(require("wiresurfer.git"))
-LoadPluginList(require("wiresurfer.ai"))
 LoadPluginList(require("wiresurfer.devtools"))
 LoadPluginList(require("wiresurfer.md"))
+LoadPluginList(require("wiresurfer.ai"))
 LoadPluginList(require("wiresurfer.keymaps"))
 

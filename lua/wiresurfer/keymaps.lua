@@ -15,6 +15,8 @@ keymap.set(somemode, '<Space>za', 'zfat')
 
 
 keymap.set(somemode, "<Space><tab>", "<cmd>:b#<cr>") -- Switch to previous buffer quickly!
+
+
 M.whick_remap("LF", "<cmd>LvimToggleFormatOnSave<cr>", "Toggle  Format on Save")
 M.whick_remap("LA", "<cmd>ASToggle<cr>", "Toggle  Auto Save")
 M.whick_remap("bv", "<C-w>v", "Split vertical")
@@ -30,6 +32,16 @@ M.whick_remap('lo', '<CMD>Outline<CR>', 'LSP Outline')
 
 M.whick_remap('gn', '<CMD>Neogit<CR>', 'Neogit')
 M.whick_remap('gM', '<CMD>Mergetool<CR>', 'Neogit')
+
+M.whick_remap("<space>", "<cmd>Telescope<cr>", "Telescope")
+lvim.builtin.which_key.mappings["<space>"] = {
+  name = "Telescope",
+  p = { '<CMD>Telescope  projects<CR>', 'Projects' },
+  f = { '<CMD>Telescope fd<CR>', 'Files' },
+  d = { '<CMD>Oil --float ~/Desktop/<CR>', 'Directory' },
+  s = { '<CMD>Telescope session-lens<CR>', 'Sessions' },
+  b = { '<CMD>Telescope buffers<CR>', 'Buffers' },
+}
 
 lvim.builtin.which_key.mappings["gM"] = {
   name = "Mergetool",
